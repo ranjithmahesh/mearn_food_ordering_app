@@ -1,7 +1,7 @@
 import express from "express";
 import MyUserController from "../controllers/MyUserController";
 import { jwtCheck, jwtParse } from "../middleware/auth";
-import { valiadteMyUserRequest } from "../middleware/validation";
+import { validateMyUserRequest } from "../middleware/validation";
 
 const router = express.Router();
 router.get("/", jwtCheck, jwtParse, MyUserController.getCurrentUser);
@@ -10,7 +10,7 @@ router.put(
   "/",
   jwtCheck,
   jwtParse,
-  valiadteMyUserRequest,
+  validateMyUserRequest,
   MyUserController.updateCurrentUser
 );
 
